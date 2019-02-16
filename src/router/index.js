@@ -35,8 +35,8 @@ export const constantRouterMap = [
     meta: { title: '主页', icon: 'example' },
     children: [{
       path: 'admin',
-      component: () => import('@/views/admin/index'),
-      meta: { title: '主页', icon: 'example' },
+      component: () => import('@/views/main/index'),
+      meta: { title: '主页', icon: 'example' }
     }]
   },
   {
@@ -95,7 +95,7 @@ export const constantRouterMap = [
             path: 'mail_setting',
             component: () => import('@/views/setting/sys_setting/mail_setting/index'),
             name: '邮件设置',
-            meta: { title: '邮件设置', icon: 'example'},
+            meta: { title: '邮件设置', icon: 'example' }
           }
         ]
       },
@@ -103,20 +103,20 @@ export const constantRouterMap = [
         path: 'my_setting',
         component: () => import('@/views/setting/my_setting/index'),
         name: '我的设置',
-        meta: {title: '我的设置', icon: 'user'},
+        meta: { title: '我的设置', icon: 'user' },
         children: [
-            {
-                path: 'my_setting',
-                component: () => import('@/views/setting/my_setting/my_setting/index'),
-                name: '我的信息',
-                meta: {title: '我的信息', icon: 'user'}
-            },
-            {
-                path: 'password_setting',
-                component: () => import('@/views/setting//my_setting/password_setting/index'),
-                name: '修改密码',
-                meta: {title: '修改密码', icon: 'password'},
-            }
+          {
+            path: 'my_setting',
+            component: () => import('@/views/setting/my_setting/my_setting/index'),
+            name: '我的信息',
+            meta: { title: '我的信息', icon: 'user' }
+          },
+          {
+            path: 'password_setting',
+            component: () => import('@/views/setting//my_setting/password_setting/index'),
+            name: '修改密码',
+            meta: { title: '修改密码', icon: 'password' }
+          }
         ]
       }
     ]
@@ -178,39 +178,6 @@ export const constantRouterMap = [
         name: '用户日志',
         component: () => import('@/views/log/user_log'),
         meta: { title: '用户日志', icon: 'nested' }
-      }
-    ]
-  },
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
       }
     ]
   },

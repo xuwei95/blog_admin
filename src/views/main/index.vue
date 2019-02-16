@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div class="app-container">
     {{ msg }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'index',
   data() {
     return {
       msg: '控制台'
@@ -16,8 +15,8 @@ export default {
 </script>
 
 <style scoped>
-.line{
-  text-align: center;
-}
+.app-container{
+    text-align: center;
+  }
 </style>
 
