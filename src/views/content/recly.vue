@@ -102,17 +102,20 @@ export default {
       this.del_form.id = row.id
       delete_article(this.del_form).then(response => {
         Message.success(response.msg)
+        this.fetchData()
       })
     },
     recly_article(row) {
       this.recly_form.id = row.id
       recly_article(this.recly_form).then(response => {
         Message.success(response.msg)
+        this.fetchData()
       })
     },
     clean_recly() {
       recly_article().then(response => {
         Message.success(response.msg)
+        this.fetchData()
       })
     }
   }

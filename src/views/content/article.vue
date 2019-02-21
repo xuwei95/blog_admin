@@ -173,6 +173,7 @@ export default {
     delete_article(row) {
       this.del_form.id = row.id
       delete_article(this.del_form).then(response => {
+        this.fetchData()
         Message.success(response.msg)
       })
     },
@@ -184,6 +185,7 @@ export default {
     Add_Article() {
       add_article(this.form).then(response => {
         Message.success(response.msg)
+        this.fetchData()
         this.dialogVisible = false
       })
     }

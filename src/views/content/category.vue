@@ -117,11 +117,13 @@ export default {
       this.form = row
       del_category(this.form).then(response => {
         Message.success(response.msg)
+        this.fetchData()
       })
     },
     add_category() {
       add_category(this.add_form).then(response => {
         Message.success(response.msg)
+        this.fetchData()
         this.add_show = false
       })
     },
