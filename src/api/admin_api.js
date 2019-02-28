@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function get_user_list(params) {
   return request({
-    url: '/user/',
+    url: '/user/list/',
     method: 'get',
     params
   })
@@ -14,39 +14,29 @@ export function get_article_list(params) {
     params
   })
 }
-export function get_category_list(params) {
+
+export function add_article(params) {
   return request({
-    url: '/category/',
-    method: 'get',
-    params
-  })
-}
-export function edit_category(params) {
-  return request({
-    url: '/category_edit/',
+    url: '/article/',
     method: 'post',
     data: params
   })
 }
-export function add_category(params) {
+
+
+export function update_article(params) {
   return request({
-    url: '/category_add/',
-    method: 'post',
+    url: '/article/',
+    method: 'put',
     data: params
   })
 }
-export function del_category(params) {
+
+export function delete_article(params) {
   return request({
-    url: '/category_del/',
-    method: 'post',
+    url: '/article/',
+    method: 'delete',
     data: params
-  })
-}
-export function get_comments_list(params) {
-  return request({
-    url: '/comments/',
-    method: 'get',
-    params
   })
 }
 export function get_recly_list(params) {
@@ -63,27 +53,39 @@ export function recly_article(params) {
     data: params
   })
 }
-export function get_website(params) {
+export function get_category_list(params) {
   return request({
-    url: '/website/',
+    url: '/category/',
     method: 'get',
     params
   })
 }
-
-export function add_article(params) {
+export function edit_category(params) {
   return request({
-    url: '/article_add/',
+    url: '/category/',
+    method: 'put',
+    data: params
+  })
+}
+export function add_category(params) {
+  return request({
+    url: '/category/',
     method: 'post',
     data: params
   })
 }
-
-export function delete_article(params) {
+export function del_category(params) {
   return request({
-    url: '/article_del/',
-    method: 'post',
+    url: '/category/',
+    method: 'delete',
     data: params
+  })
+}
+export function get_comments_list(params) {
+  return request({
+    url: '/comments/',
+    method: 'get',
+    params
   })
 }
 
@@ -121,7 +123,7 @@ export function set_mail_info(params) {
 
 export function get_my_info(params) {
   return request({
-    url: '/user_setting/',
+    url: '/user/',
     method: 'get',
     params
   })
@@ -129,7 +131,7 @@ export function get_my_info(params) {
 
 export function set_my_info(params) {
   return request({
-    url: '/user_setting/',
+    url: '/user/',
     method: 'post',
     data: params
   })
@@ -137,7 +139,7 @@ export function set_my_info(params) {
 
 export function set_password(params) {
   return request({
-    url: '/user_password/',
+    url: '/user/password/',
     method: 'post',
     data: params
   })
@@ -145,14 +147,14 @@ export function set_password(params) {
 
 export function get_sys_log(params) {
   return request({
-    url: '/syslog/',
+    url: '/sys_log/',
     method: 'get',
     params
   })
 }
 export function get_user_log(params) {
   return request({
-    url: '/userlog/',
+    url: '/user_log/',
     method: 'get',
     params
   })

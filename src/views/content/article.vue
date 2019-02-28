@@ -79,7 +79,7 @@
           </el-form-item>
         </div>
         <el-form-item>
-          <el-button type="primary" @click="Add_Article">发布</el-button>
+          <el-button type="primary" @click="Update_Article">发布</el-button>
         </el-form-item>
       </el-form>
     </el-dialog>
@@ -89,7 +89,7 @@
 <script>
 import { get_article_list } from '@/api/admin_api'
 import { get_category_list } from '@/api/admin_api'
-import { add_article } from '@/api/admin_api'
+import { update_article } from '@/api/admin_api'
 import { delete_article } from '@/api/admin_api'
 import { is_Mobile } from '@/utils/is_mobile'
 import { Message } from 'element-ui'
@@ -104,6 +104,7 @@ export default {
         limit: 10
       },
       form: {
+        id: '',
         category: '',
         title: '',
         tags: '',
@@ -163,6 +164,7 @@ export default {
       })
     },
     edit_article(row) {
+      this.form.id = row.id
       this.form.category = row.category
       this.form.title = row.title
       this.form.tags = row.tags
@@ -182,8 +184,8 @@ export default {
         this.category_list = response.data
       })
     },
-    Add_Article() {
-      add_article(this.form).then(response => {
+    Update_Article() {
+      update_article(this.form).then(response => {
         Message.success(response.msg)
         this.fetchData()
         this.dialogVisible = false

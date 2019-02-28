@@ -45,7 +45,7 @@ import { get_category_list } from '@/api/admin_api'
 import { add_article } from '@/api/admin_api'
 import { Message } from 'element-ui'
 import { is_Mobile } from '@/utils/is_mobile'
-
+import { getToken } from '@/utils/auth'
 export default {
   name: 'Write',
   data() {
@@ -55,7 +55,8 @@ export default {
         title: '',
         tags: '',
         content: '',
-        is_public: true
+        is_public: true,
+        token: ''
       },
       category_list: [],
       listLoading: true,
@@ -88,6 +89,7 @@ export default {
   created() {
     this.get_Category_list()
     this.is_mobile = is_Mobile()
+    this.form.token = getToken()
   },
   mounted() {
     if (!this.is_mobile) {

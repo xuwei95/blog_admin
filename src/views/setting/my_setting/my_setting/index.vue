@@ -35,6 +35,7 @@
 <script>
 import { get_my_info } from '@/api/admin_api'
 import { set_my_info } from '@/api/admin_api'
+import { getToken } from '@/utils/auth'
 import { Message } from 'element-ui'
 export default {
   data() {
@@ -46,20 +47,22 @@ export default {
         email: '',
         sex: '',
         note: ''
+      },
+      query_form: {
+        token: ''
       }
     }
   },
   created() {
     this.fetchData()
+    this.query_form.token = getToken()
   },
   methods: {
     fetchData() {
-      this.listLoading = true
-      get_my_info().then(response => {
+      get_my_info(this.query_form).then(response => {
         if (response.data.length !== 0) {
           this.form = response.data
         }
-        this.listLoading = false
       })
     },
     onSubmit() {
