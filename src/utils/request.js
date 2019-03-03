@@ -62,12 +62,14 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error) // for debug
-    Message({
-      message: '用户名或密码错误',
-      type: 'error',
-      duration: 5 * 1000
-    })
+    console.log('err' + error.response.status) // for debug
+    if(error.response.status===400) {
+      Message({
+        message: '用户名或密码错误',
+        type: 'error',
+        duration: 5 * 1000
+      })
+    }
     return Promise.reject(error)
   }
 )

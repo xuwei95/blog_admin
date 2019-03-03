@@ -145,6 +145,22 @@ export function set_password(params) {
   })
 }
 
+export function get_sys_info(params) {
+  return request({
+    url: '/sys_info/',
+    method: 'get',
+    params
+  })
+}
+
+export function get_network_info(params) {
+  return request({
+    url: '/network_info/',
+    method: 'get',
+    params
+  })
+}
+
 export function get_sys_log(params) {
   return request({
     url: '/sys_log/',
